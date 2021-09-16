@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import CartIcon from "../Cart/CartIcon";
 import CartContext from "../../store/CartContext";
 
-const HeaderCartButton = (props) => {
+const HeaderCartButton = () => {
   const cartCtx = useContext(CartContext);
 
   const { items } = cartCtx;
@@ -16,7 +15,7 @@ const HeaderCartButton = (props) => {
   return (
     <Link to="/cart">
       <span>
-        <CartIcon />
+        <i class="fa fa-shopping-cart"></i>
       </span>
       <span>Your Cart</span>
       <span>{numberOfCartItems}</span>

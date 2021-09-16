@@ -1,3 +1,5 @@
+import React from "react";
+
 const Home = () => {
   return (
     <section>
@@ -14,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);

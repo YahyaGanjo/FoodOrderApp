@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import mealsImage from "../../assets/meals.jpg";
 import HeaderCartButton from "./HeaderCartButton";
 
@@ -8,6 +9,8 @@ const Header = (props) => {
       <header>
         <h1>React Meals</h1>
         <HeaderCartButton />
+        <Link to="/home">Home</Link>
+        <Link to="/order">Order</Link>
       </header>
       <div>
         <img src={mealsImage} alt="a table full of delicious meals!" />
