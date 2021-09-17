@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import Input from "../../UI/Input";
+import Input from "./Input";
 
 const MealItemForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
@@ -32,7 +32,7 @@ const MealItemForm = (props) => {
           defaultValue: "1",
         }}
       />
-      <button onClick="submit">+ Add</button>
+      <button>+ Add</button>
       {!amountIsValid && <p>Please enter a valid amount (1-5)</p>}
     </form>
   );

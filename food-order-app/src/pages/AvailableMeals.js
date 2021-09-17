@@ -1,48 +1,45 @@
-import React from "react";
-import MealItem from "../components/Meals/MealItem/MealItem";
-
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
-  },
-  {
-    id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
-    price: 16.5,
-  },
-  {
-    id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price: 12.99,
-  },
-  {
-    id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 18.99,
-  },
-];
+import MealItem from "../components/MealItem";
+import useFetch from "../hooks/useFetch";
+import React, { useState } from "react";
 
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => (
+  const [sortFood, setSortFood] = useState(null);
+  /*const [fetchedMeals, setFetchedMeals] = useState([]);
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await fetch(
+        "https://api.spoonacular.com/recipes/complexSearch?query=indian&addRecipeNutrition=true&number=5&apiKey=1c2892fae70f42eb81a47d2df5b3adfd"
+      );
+      const data = await response.json();
+      setFetchedMeals(data.results);
+      console.log(data.results);
+    };
+    fetchMeals();
+  }, []);*/
+
+  const fetchedMeals = useFetch(sortFood);
+  const meals = fetchedMeals.map((meal) => (
     <MealItem
       id={meal.id}
       key={meal.id}
-      name={meal.name}
-      description={meal.description}
-      price={meal.price}
+      name={meal.title}
+      image={meal.image}
+      ingredients={meal.nutrition.ingredients}
+      price={(meal.pricePerServing / 100) * meal.servings}
     />
   ));
+
   return (
     <section>
-      <ul>{mealsList}</ul>
+      <button onClick={() => setSortFood("indian")}>Indian</button>
+      <button onClick={() => setSortFood("funghi")}>pizza</button>
+      <button onClick={() => setSortFood("pasta")}>pasta</button>
+      <button onClick={() => setSortFood("sushi")}>sushi</button>
+      <button onClick={() => setSortFood("hamburger")}>hamburger</button>
+      <button onClick={() => setSortFood("thai")}>thai</button>
+      <ul>{meals}</ul>
     </section>
   );
 };
 
-export default AvailableMeals;
+export default React.memo(AvailableMeals);

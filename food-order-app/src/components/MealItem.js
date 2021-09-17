@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import MealItemForm from "./MealItemForm";
-import CartContext from "../../../store/CartContext";
+import CartContext from "../store/CartContext";
 
 const MealItem = (props) => {
   const ctx = useContext(CartContext);
@@ -14,11 +14,16 @@ const MealItem = (props) => {
       price: props.price,
     });
   };
+  const ingredients = props.ingredients.map((item) => item.name).join(", ");
   return (
     <li>
       <div>
         <h3>{props.name}</h3>
-        <div>{props.description}</div>
+        <img src={props.image} alt={props.name} />
+        <div>
+          <b>Ingredients: </b>
+          {ingredients}
+        </div>
         <div>{price}</div>
       </div>
       <div>
