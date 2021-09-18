@@ -2,7 +2,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import AvailableMeals from "./pages/AvailableMeals";
+import AvailableMeals from "./pages/AvailableMeals0";
 import NotFound from "./pages/NotFound";
 import CartProvider from "./store/CartProvider";
 

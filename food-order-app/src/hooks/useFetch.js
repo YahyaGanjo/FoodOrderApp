@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
 const useFetch = (query) => {
-  const [fetchedMeals, setFetchedMeals] = useState([]);
+  const [meals, setMeals] = useState([]);
+  const [error, setError] = useState();
   useEffect(() => {
     const fetchMeals = async () => {
       if (query === null) {
@@ -11,12 +12,18 @@ const useFetch = (query) => {
         `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeNutrition=true&number=5&apiKey=1c2892fae70f42eb81a47d2df5b3adfd`
       );
       const data = await response.json();
-      setFetchedMeals(data.results);
-      console.log("called");
+      if (data.status === "failure") {
+        setError(data.message);
+        console.log(data);
+        return;
+      }
+
+      setMeals(data.results);
+      console.log("API is called");
     };
     fetchMeals();
   }, [query]);
-  return fetchedMeals;
+  return { meals, error };
 };
 
 export default useFetch;

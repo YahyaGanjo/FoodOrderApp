@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import CartContext from "../store/CartContext";
 import CartItem from "../components/CartItem";
+import Checkout from "../components/Checkout";
 
 const Cart = () => {
   const ctx = useContext(CartContext);
@@ -32,10 +34,8 @@ const Cart = () => {
         <span>Total Amount</span>
         <span>${ctx.totalAmount.toFixed(2)}</span>
       </div>
-      <div>
-        <button>Close</button>
-        {hasItems && <button>Order</button>}
-      </div>
+      <Link to="/order">Cancel</Link>
+      {hasItems && <Checkout />}
     </div>
   );
 };
