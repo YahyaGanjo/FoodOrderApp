@@ -14,17 +14,12 @@ const MealItem = (props) => {
       price: props.price,
     });
   };
-  const ingredients = props.ingredients.map((item) => item.name).join(", ");
   return (
     <li>
+      <img src={props.image} alt={props.name} />
+      <h3 style={{ margin: "8px 0px" }}>{props.name}</h3>
       <div>
-        <h3>{props.name}</h3>
-        <img src={props.image} alt={props.name} />
-        <div>
-          <b>Ingredients: </b>
-          {ingredients}
-        </div>
-        <div>{price}</div>
+        <b>{price}</b>
       </div>
       <div>
         <MealItemForm onAddToCart={addToCartHandler} id={props.id} />

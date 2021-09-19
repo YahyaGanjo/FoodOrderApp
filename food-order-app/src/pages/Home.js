@@ -1,12 +1,13 @@
 import React from "react";
 import BackDrop from "../components/BackDrop";
+import classes from "./Home.module.css";
 
 const Home = () => {
   return (
     <React.Fragment>
       <BackDrop />
-      <section>
-        <h1 style={{ fontSize: "2.5rem" }}>Delicious Food, Delivered To You</h1>
+      <section className={classes.home}>
+        <h1>Delicious Food, Delivered To You</h1>
         <p>
           Choose your favorite meal from our broad selection of available meals
           and enjoy a delicious lunch or dinner at home.

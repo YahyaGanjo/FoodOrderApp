@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  text-decoration: none;
+  background: rgb(238, 238, 238);
+  color: black;
+  cursor: pointer;
+  border-radius: 500px;
+}
+.button:hover {
+  background-color: rgb(179, 172, 172);
+}
