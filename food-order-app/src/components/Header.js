@@ -1,20 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import mealsImage from "../assets/meals.jpg";
+import { NavLink } from "react-router-dom";
 import HeaderCartButton from "./HeaderCartButton";
+import classes from "./Header.module.css";
 
 const Header = (props) => {
   return (
     <React.Fragment>
-      <header>
-        <h1>React Meals</h1>
-        <Link to="/home">Home</Link>
-        <Link to="/order">Order</Link>
+      <header className={classes.header}>
+        <h3>
+          React <span style={{ color: "rgb(62, 212, 62)" }}>Meals</span>
+        </h3>
+        <div className={classes.space}></div>
+        <NavLink className={classes.links} to="/login">
+          Log In
+        </NavLink>
+        <NavLink className={classes.links} to="/home">
+          Home
+        </NavLink>
+        <NavLink className={classes.order} to="/order">
+          Click here to order directly
+        </NavLink>
         <HeaderCartButton />
       </header>
-      <div>
-        <img src={mealsImage} alt="a table full of delicious meals!" />
-      </div>
+
       <main>{props.children}</main>
     </React.Fragment>
   );

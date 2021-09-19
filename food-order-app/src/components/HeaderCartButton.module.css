@@ -1,0 +1,14 @@
+.cartButton a {
+  text-decoration: none;
+  background: black;
+  padding: 10px 4px;
+  border-radius: 500px;
+  line-height: 16px;
+  color: rgb(238, 238, 238);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.cartButton span {
+  margin: 0 12px;
+}

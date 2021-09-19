@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../store/CartContext";
+import classes from "./HeaderCartButton.module.css";
 
 const HeaderCartButton = () => {
   const cartCtx = useContext(CartContext);
@@ -12,13 +13,15 @@ const HeaderCartButton = () => {
   }, 0);
 
   return (
-    <Link to="/cart">
-      <span>
-        <i className="fa fa-shopping-cart"></i>
-      </span>
-      <span>Your Cart</span>
-      <span>{numberOfCartItems}</span>
-    </Link>
+    <div className={classes.cartButton}>
+      <Link to="/cart">
+        <span>
+          <i className="fa fa-shopping-cart"></i>
+        </span>
+        <span>Cart</span>
+        <span>{numberOfCartItems}</span>
+      </Link>
+    </div>
   );
 };
 

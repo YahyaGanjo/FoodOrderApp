@@ -5,6 +5,7 @@ import Cart from "./pages/Cart";
 import AvailableMeals from "./pages/AvailableMeals0";
 import NotFound from "./pages/NotFound";
 import CartProvider from "./store/CartProvider";
+import LogIn from "./pages/LogIn";
 
 function App() {
   return (
@@ -14,10 +15,13 @@ function App() {
           <Route path="/" exact>
             <Redirect to="/home" />
           </Route>
-          <Route path="/home" exact>
+          <Route path="/home">
             <Home />
           </Route>
-          <Route path="/order" exact>
+          <Route path="/login">
+            <LogIn />
+          </Route>
+          <Route path="/order">
             <AvailableMeals />
           </Route>
           <Route path="/cart">

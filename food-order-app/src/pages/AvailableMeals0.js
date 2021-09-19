@@ -24,7 +24,7 @@ const AvailableMeals = () => {
       <button onClick={() => setSortFood("thai")}>Thai</button>
       <button onClick={() => setSortFood("indian")}>Indian</button>
       <button onClick={() => setSortFood("dessert")}>Dessert</button>
-      <button onClick={() => setSortFood("alcohol")}>Alcohol</button>
+      <button onClick={() => setSortFood("cocktail")}>cocktails</button>
       <div>{fetchedMeals.error && fetchedMeals.error}</div>
       <div>{fetchedMeals.meals.length > 0 && <ul>{meals}</ul>}</div>
     </section>
