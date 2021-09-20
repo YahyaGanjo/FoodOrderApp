@@ -52,7 +52,7 @@ const Cart = () => {
           className={classes.checkoutBtn}
           onClick={showingCheckoutHandler}
         >
-          Go to checkout €{ctx.totalAmount.toFixed(2)}
+          Go to checkout € {ctx.totalAmount.toFixed(2)}
         </button>
       </div>
       {checkoutIsShown && hasItems && <Checkout />}
