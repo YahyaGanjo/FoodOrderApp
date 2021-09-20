@@ -9,7 +9,7 @@ const useFetch = (query) => {
         return;
       }
       const response = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeNutrition=true&number=15&apiKey=1c2892fae70f42eb81a47d2df5b3adfd`
+        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&addRecipeNutrition=true&number=15&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
       );
       const data = await response.json();
       if (data.status === "failure") {
