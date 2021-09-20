@@ -1,20 +1,20 @@
-const CartItem = (props) => {
-  const price = `$${props.price.toFixed(2)}`;
+import classes from "./CartItem.module.css";
 
+const CartItem = (props) => {
   return (
     <li>
-      <div>
-        <h2>{props.name}</h2>
-        <div>
-          <span>{price}</span>
-          <span>x {props.amount}</span>=
-          <span>${(props.amount * props.price).toFixed(2)}</span>
+      <div className={classes.itemContainer}>
+        <div className={classes.amount}>
+          <span>{props.amount}</span>
+          <button onClick={props.onRemove}>−</button>
+          <button onClick={props.onAdd}>+</button>
         </div>
+        <h4>{props.name}</h4>
+        <span className={classes.price}>
+          <b>€{(props.amount * props.price).toFixed(2)}</b>
+        </span>
       </div>
-      <div>
-        <button onClick={props.onRemove}>−</button>
-        <button onClick={props.onAdd}>+</button>
-      </div>
+      <div></div>
     </li>
   );
 };

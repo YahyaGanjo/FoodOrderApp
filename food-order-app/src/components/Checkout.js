@@ -24,10 +24,13 @@ const Checkout = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("something");
+    console.log("something else");
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form
+      style={{ position: "absolute", top: "300px", right: "0" }}
+      onSubmit={submitHandler}
+    >
       <div>
         <label htmlFor="name">Your Name</label>
         <input

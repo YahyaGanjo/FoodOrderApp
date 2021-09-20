@@ -20,12 +20,14 @@
 
 .meals h2 {
   font-size: 2rem;
+  font-family: "Barlow", sans-serif;
 }
 li {
   list-style: none;
 }
 .foodSorts h3 {
   margin-left: 12px;
+  font-family: "Barlow", sans-serif;
 }
 .foodSorts input {
   display: none;

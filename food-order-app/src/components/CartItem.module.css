@@ -1,0 +1,31 @@
+.itemContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  border-bottom: solid gray 1px;
+  grid-template-rows: 50px;
+  padding-bottom: 20px;
+}
+.amount,
+.price {
+  border-radius: 500px;
+  text-align: center;
+  margin: 6px 0px;
+  padding: 7px 3px;
+}
+.itemContainer h4 {
+  margin: 0px 20px;
+  text-align: center;
+  padding: 12px 0px;
+}
+.amount {
+  background: rgb(238, 238, 238);
+}
+.amount button {
+  border: none;
+  font-size: large;
+  float: right;
+}
+.amount button:hover {
+  cursor: pointer;
+}

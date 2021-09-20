@@ -85,7 +85,7 @@ const AvailableMeals = () => {
         <div className={classes.meals}>
           {fetchedMeals.error && <NotFound />}
           <React.Fragment>
-            <h2>{sortFood === null ? "popular Meals" : sortFood}</h2>
+            <h2>{sortFood === null ? "Popular Meals" : sortFood}</h2>
             <ul>{meals}</ul>
           </React.Fragment>
         </div>

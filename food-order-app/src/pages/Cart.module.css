@@ -1,0 +1,32 @@
+.cart {
+  width: 50%;
+  display: grid;
+  position: absolute;
+  top: 100px;
+  grid-template-rows: 80px 1fr 80px 80px;
+}
+
+.cart ul {
+  padding: 0px;
+}
+.cart h1 {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.4rem;
+}
+.cancelBtn,
+.checkoutBtn {
+  margin: 10px 50px;
+  border: none;
+  font-size: 20px;
+}
+.cancelBtn {
+  background: rgb(238, 238, 238);
+}
+.checkoutBtn {
+  background-color: black;
+  color: white;
+}
+.cancelBtn:hover,
+.checkoutBtn:hover {
+  cursor: pointer;
+}

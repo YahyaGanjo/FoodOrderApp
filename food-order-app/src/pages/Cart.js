@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import CartContext from "../store/CartContext";
 import CartItem from "../components/CartItem";
 import Checkout from "../components/Checkout";
+import classes from "./Cart.module.css";
 
 const Cart = () => {
+  const [checkoutIsShown, setCheckoutIsShown] = useState(false);
+  const history = useHistory();
   const ctx = useContext(CartContext);
   const cartItemAddHandler = (item) => {
     ctx.addItem({ ...item, amount: 1 });
@@ -27,16 +30,33 @@ const Cart = () => {
     </ul>
   );
   const hasItems = ctx.items.length > 0;
+  const showingCheckoutHandler = () => {
+    if (!hasItems) {
+      setCheckoutIsShown(false);
+      return;
+    }
+    setCheckoutIsShown(true);
+  };
   return (
-    <div>
-      {cartItems}
-      <div>
-        <span>Total Amount</span>
-        <span>${ctx.totalAmount.toFixed(2)}</span>
+    <React.Fragment>
+      <div className={classes.cart}>
+        <h1>{hasItems ? "Manage Your Order" : "Your Cart Is Empty"}</h1>
+        {cartItems}
+        <button
+          onClick={() => history.push("/order")}
+          className={classes.cancelBtn}
+        >
+          Back to food page
+        </button>
+        <button
+          className={classes.checkoutBtn}
+          onClick={showingCheckoutHandler}
+        >
+          Go to checkout €{ctx.totalAmount.toFixed(2)}
+        </button>
       </div>
-      <Link to="/order">Cancel</Link>
-      {hasItems && <Checkout />}
-    </div>
+      {checkoutIsShown && hasItems && <Checkout />}
+    </React.Fragment>
   );
 };
 
