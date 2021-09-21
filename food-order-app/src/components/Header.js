@@ -11,8 +11,8 @@ const Header = (props) => {
           React <span style={{ color: "rgb(62, 212, 62)" }}>Meals</span>
         </h3>
         <div className={classes.space}></div>
-        <NavLink className={classes.links} to="/login">
-          Log In
+        <NavLink className={classes.links} to="/auth">
+          Sign In
         </NavLink>
         <NavLink className={classes.links} to="/home">
           Home
