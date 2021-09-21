@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AuthContext from "../store/AuthContext";
 import classes from "./RegForm.module.css";
 
 const isEmpty = (value) => value.trim() === "";
 
 const SignInForm = (props) => {
+  const authCtx = useContext(AuthContext);
   const [pass, setPass] = useState("");
   const [email, setEmail] = useState("");
+  const [feedBack, setFeedback] = useState(null);
   const [isHidden, setIsHidden] = useState(true);
   const [inputValidity, setInputValidity] = useState(false);
 
@@ -23,12 +26,42 @@ const SignInForm = (props) => {
       setIsHidden(false);
       return;
     }
+
+    fetch(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB1wP6S6AEEiWYRyvJmMFIN2yZZKfO-fsY`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email,
+          password: pass,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((res) => {
+      if (res.ok) {
+        return res.json().then((data) => {
+          setFeedback(
+            <h1 style={{ color: "green" }}>Signed In Successfully</h1>
+          );
+          authCtx.login(data.idToken);
+        });
+      } else {
+        return res.json().then((data) => {
+          setFeedback(<h1 style={{ color: "red" }}>{data.error.message}</h1>);
+        });
+      }
+    });
+
     setPass("");
     setEmail("");
   };
   return (
-    <div>
+    <>
       <h1>Sign In</h1>
+      {feedBack}
       <form className={classes.form} onSubmit={submitHandler}>
         {!isHidden && <h3 style={{ color: "red" }}>Please fill all fields</h3>}
         <div className={classes.control}>
@@ -51,7 +84,7 @@ const SignInForm = (props) => {
         </div>
         {props.children}
       </form>
-    </div>
+    </>
   );
 };
 

@@ -11,6 +11,9 @@
   position: absolute;
   top: 0;
 }
+.header h1 {
+  font-size: 40px;
+}
 .space {
   flex-shrink: 1;
   flex-grow: 1;
@@ -24,6 +27,9 @@
 }
 .links {
   border-radius: 500px;
+  border-color: transparent;
+  font-family: inherit;
+  font-size: 16px;
 }
 
 .links,

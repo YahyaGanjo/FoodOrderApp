@@ -10,7 +10,6 @@ const RegForm = (props) => {
   const [address, setAddress] = useState("");
   const [postal, setPostal] = useState("");
   const [isHidden, setIsHidden] = useState(true);
-  const [feedBack, setFeedback] = useState(null);
   const [inputValidity, setInputValidity] = useState(false);
 
   useEffect(() => {
@@ -18,13 +17,12 @@ const RegForm = (props) => {
     if (
       !isEmpty(name) &&
       !isEmpty(email) &&
-      !isEmpty(pass) &&
       !isEmpty(address) &&
       !isEmpty(postal)
     ) {
       setInputValidity(true);
     }
-  }, [name, email, pass, address, postal]);
+  }, [name, email, address, postal]);
 
   const submitHandler = (e) => {
     setIsHidden(true);
@@ -33,34 +31,9 @@ const RegForm = (props) => {
       setIsHidden(false);
       return;
     }
-
-    fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB1wP6S6AEEiWYRyvJmMFIN2yZZKfO-fsY`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email,
-          password: pass,
-          returnSecureToken: true,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json().then((data) => {
-          setFeedback(
-            <h1 style={{ color: "green" }}>Account Created Successfully</h1>
-          );
-          console.log(data);
-        });
-      } else {
-        return res.json().then((data) => {
-          setFeedback(<h1 style={{ color: "red" }}>{data.error.message}</h1>);
-        });
-      }
-    });
+    if (props.onSubmit) {
+      props.onSubmit(email, pass);
+    }
 
     setName("");
     setEmail("");
@@ -70,7 +43,6 @@ const RegForm = (props) => {
   };
   return (
     <>
-      {feedBack}
       <form className={classes.form} onSubmit={submitHandler}>
         {!isHidden && <h3 style={{ color: "red" }}>Please fill all fields</h3>}
         <div className={classes.control}>
