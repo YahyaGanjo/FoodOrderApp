@@ -19,7 +19,6 @@ const useFetch = (query) => {
       }
 
       setMeals(data.results);
-      console.log("API is called");
     };
     fetchMeals();
   }, [query]);

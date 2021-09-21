@@ -8,8 +8,9 @@
   line-height: 59px;
   width: 90%;
   margin: auto;
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 2;
 }
 .header h1 {
   font-size: 40px;

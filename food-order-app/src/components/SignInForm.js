@@ -30,7 +30,7 @@ const SignInForm = (props) => {
     }
 
     fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB1wP6S6AEEiWYRyvJmMFIN2yZZKfO-fsY`,
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
       {
         method: "POST",
         body: JSON.stringify({

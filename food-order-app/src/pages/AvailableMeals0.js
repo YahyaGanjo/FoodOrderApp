@@ -5,7 +5,7 @@ import NotFound from "./NotFound";
 import classes from "./AvailableMeals.module.css";
 
 const AvailableMeals = () => {
-  const [sortFood, setSortFood] = useState(null);
+  const [sortFood, setSortFood] = useState("Pizza");
   const fetchedMeals = useFetch(sortFood);
   const meals = fetchedMeals.meals.map((meal) => (
     <MealItem
@@ -94,4 +94,4 @@ const AvailableMeals = () => {
   );
 };
 
-export default AvailableMeals;
+export default React.memo(AvailableMeals);

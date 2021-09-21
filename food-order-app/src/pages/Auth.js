@@ -13,7 +13,7 @@ const Auth = () => {
 
   const accountCreationHandler = (email, pass) => {
     fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB1wP6S6AEEiWYRyvJmMFIN2yZZKfO-fsY`,
+      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
       {
         method: "POST",
         body: JSON.stringify({
@@ -29,9 +29,6 @@ const Auth = () => {
       .then((res) => {
         if (res.ok) {
           return res.json().then((data) => {
-            setFeedback(
-              <h1 style={{ color: "green" }}>Account Created Successfully</h1>
-            );
             authCtx.login(data.idToken);
             history.replace("/home");
           });
