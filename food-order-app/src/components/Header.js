@@ -23,20 +23,16 @@ const Header = (props) => {
         {authCtx.isLoggedIn && (
           <button
             onClick={() => {
+              history.push("/home");
+              history.go();
               authCtx.logout();
-              history.go("../home");
-              console.log(history);
             }}
             className={classes.links}
           >
             Sign Out
           </button>
         )}
-        {!authCtx.isLoggedIn && (
-          <NavLink className={classes.links} to="/home">
-            Home
-          </NavLink>
-        )}
+
         {authCtx.isLoggedIn && (
           <button
             onClick={() => {

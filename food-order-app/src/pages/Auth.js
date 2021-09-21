@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import AuthContext from "../store/AuthContext";
 import RegForm from "../components/RegForm";
 import SignInForm from "../components/SignInForm";
@@ -8,6 +9,7 @@ const Auth = () => {
   const [authMode, setAuthMode] = useState("signIn");
   const [feedBack, setFeedback] = useState(null);
   const authCtx = useContext(AuthContext);
+  const history = useHistory();
 
   const accountCreationHandler = (email, pass) => {
     fetch(
@@ -23,20 +25,29 @@ const Auth = () => {
           "Content-Type": "application/json",
         },
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json().then((data) => {
-          setFeedback(
-            <h1 style={{ color: "green" }}>Account Created Successfully</h1>
-          );
-          authCtx.login(data.idToken);
-        });
-      } else {
-        return res.json().then((data) => {
-          setFeedback(<h1 style={{ color: "red" }}>{data.error.message}</h1>);
-        });
-      }
-    });
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json().then((data) => {
+            setFeedback(
+              <h1 style={{ color: "green" }}>Account Created Successfully</h1>
+            );
+            authCtx.login(data.idToken);
+            history.replace("/home");
+          });
+        } else {
+          return res.json().then((data) => {
+            setFeedback(<h1 style={{ color: "red" }}>{data.error.message}</h1>);
+          });
+        }
+      })
+      .catch((error) => {
+        setFeedback(
+          <h1 style={{ color: "red" }}>
+            {error.message || "Authentication Failed"}
+          </h1>
+        );
+      });
   };
   return (
     <div style={{ left: "30px" }} className={classes.formContainer}>
