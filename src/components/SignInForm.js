@@ -49,7 +49,6 @@ const SignInForm = (props) => {
             <h1 style={{ color: "green" }}>Signed In Successfully</h1>
           );
           authCtx.login(data.idToken);
-          history.replace("/home");
         });
       } else {
         return res.json().then((data) => {

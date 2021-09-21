@@ -30,7 +30,9 @@ const Auth = () => {
         if (res.ok) {
           return res.json().then((data) => {
             authCtx.login(data.idToken);
-            history.replace("/home");
+            setFeedback(
+              <h1 style={{ color: "green" }}>Account Created Successfully</h1>
+            );
           });
         } else {
           return res.json().then((data) => {
