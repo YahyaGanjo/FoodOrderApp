@@ -44,7 +44,7 @@ const Header = (props) => {
           </button>
         )}
         <NavLink className={classes.order} to="/order">
-          Click here to order directly
+          All Food
         </NavLink>
         <HeaderCartButton />
       </header>

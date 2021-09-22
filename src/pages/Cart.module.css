@@ -30,3 +30,16 @@
 .checkoutBtn:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+  .cart {
+    width: 75%;
+    top: 200px;
+    grid-template-rows: 140px 2fr 70px 70px;
+  }
+  .cancelBtn,
+  .checkoutBtn {
+    margin: 10px 0px;
+    font-size: 14px;
+  }
+}

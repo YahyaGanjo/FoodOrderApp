@@ -49,3 +49,12 @@
 .confirm:hover {
   cursor: pointer;
 }
+@media screen and (max-width: 800px) {
+  .formContainer {
+    width: 75%;
+    top: 700px;
+  }
+  .btnContainer {
+    margin-bottom: 20px;
+  }
+}

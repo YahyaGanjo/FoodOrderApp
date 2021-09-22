@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import AuthContext from "../store/AuthContext";
 import classes from "./RegForm.module.css";
 
@@ -12,7 +11,6 @@ const SignInForm = (props) => {
   const [feedBack, setFeedback] = useState(null);
   const [isHidden, setIsHidden] = useState(true);
   const [inputValidity, setInputValidity] = useState(false);
-  const history = useHistory();
 
   useEffect(() => {
     setInputValidity(false);

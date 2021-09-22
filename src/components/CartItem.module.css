@@ -1,7 +1,7 @@
 .itemContainer {
   width: 100%;
   display: grid;
-  grid-template-columns: 100px 1fr 100px;
+  grid-template-columns: none;
   border-bottom: solid gray 1px;
   grid-template-rows: 50px;
   padding-bottom: 20px;

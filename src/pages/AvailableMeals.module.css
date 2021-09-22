@@ -80,3 +80,35 @@ li {
   -webkit-transform: scale(1);
   transform: scale(1);
 }
+
+@media screen and (max-width: 800px) {
+  .orderPageContainer {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-columns: none;
+    position: absolute;
+    top: 200px;
+  }
+  .foodSorts {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+  .foodSorts form {
+    display: flex;
+    flex-flow: wrap;
+  }
+  .foodSorts label {
+    margin: 6px;
+    width: 70px;
+  }
+  .meals {
+    position: relative;
+    bottom: 620px;
+  }
+  .meals ul {
+    grid-template-columns: 220px;
+    grid-template-rows: repeat(15, 280px);
+  }
+}

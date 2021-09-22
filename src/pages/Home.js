@@ -5,7 +5,6 @@ import classes from "./Home.module.css";
 const Home = () => {
   return (
     <React.Fragment>
-      <BackDrop />
       <section className={classes.home}>
         <h1>Delicious Food, Delivered To You</h1>
         <p>
@@ -17,6 +16,7 @@ const Home = () => {
           and of course by experienced chefs!
         </p>
       </section>
+      <BackDrop />
     </React.Fragment>
   );
 };

@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import AuthContext from "../store/AuthContext";
 import RegForm from "../components/RegForm";
 import SignInForm from "../components/SignInForm";
@@ -9,7 +8,6 @@ const Auth = () => {
   const [authMode, setAuthMode] = useState("signIn");
   const [feedBack, setFeedback] = useState(null);
   const authCtx = useContext(AuthContext);
-  const history = useHistory();
 
   const accountCreationHandler = (email, pass) => {
     fetch(
@@ -49,7 +47,7 @@ const Auth = () => {
       });
   };
   return (
-    <div style={{ left: "30px" }} className={classes.formContainer}>
+    <div style={{ width: "90%", marginTop: "170px" }}>
       {authMode === "signUp" && (
         <>
           <h1>Register New Account</h1>
