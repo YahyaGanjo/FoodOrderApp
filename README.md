@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Food Order App [Demo version](https://auth-45c01.web.app/home)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## General information
 
-## Available Scripts
+the current version of this app was made as a MVP version, it only allows the user right now of creating an account and ordering meals, in the next update, the app will show a user information and orders, and will provide a payment method.
 
-In the project directory, you can run:
+## App Workflow
 
-### `npm start`
+from homepage, the user can navigate throughout this app to three main parts:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Authentication Page`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+in this page a user can sign up for a new account, then he/she will be automatically signed in for the first time.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/62679874/134992764-b172b9c9-8b1f-438e-842f-790a5f0ed08f.png)
 
-### `npm run build`
+for the user's next visit, he/she can just switch to the sign in form and sign in to the app.
+a real firebase authentication system is provided on this proccess. so invalid emails, weak passwords, or empty fields will be rejected.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://user-images.githubusercontent.com/62679874/134993635-0f719ada-1fe1-4084-8cab-08d9e5236586.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+test account :
+email: test@test.com
+password: 123456
 
-### `npm run eject`
+the user can still navigate to the food order page, add meals to his/her cart and goes to cart page as a guest without having an account. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Meals Page`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+here the user can choose meals randomly or per category, and add them to the shopping cart, the shopping cart icon constantly shows the total amount of meals.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/62679874/134995017-1af22c0a-f826-4c43-b444-1e7b053bcf5f.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `Cart Page`
 
-## Learn More
+in this page the user can see and manage the cart before placing order, adding and removing a certain item from the order is available easily in this page.
+The total cost of the order is shown in the button down there, it's also instantly up to date according to user's cart changes.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![image](https://user-images.githubusercontent.com/62679874/134995993-71459db2-3d89-460a-b415-692b5dc17cb9.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+by clicking on "Go to checkout" button a form will appear for the user to complete the order.
 
-### Code Splitting
+## `Built with`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* React.js
+* Firebase authentication
+* Firebase realtime database
+* Spoonacular api  
 
-### Analyzing the Bundle Size
+## `Folder structure`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+📦src
+ ┣ 📂assets
+ ┃ ┣ 📜background1.jpg
+ ┃ ┗ 📜background2.jpg
+ ┣ 📂components                          # contains the child components
+ ┃ ┣ 📜BackDrop.js
+ ┃ ┣ 📜BackDrop.module.css
+ ┃ ┣ 📜CartItem.js
+ ┃ ┣ 📜CartItem.module.css
+ ┃ ┣ 📜Checkout.js
+ ┃ ┣ 📜Checkout.module.css
+ ┃ ┣ 📜Header.js
+ ┃ ┣ 📜Header.module.css
+ ┃ ┣ 📜HeaderCartButton.js
+ ┃ ┣ 📜HeaderCartButton.module.css
+ ┃ ┣ 📜Input.js
+ ┃ ┣ 📜MealItem.js
+ ┃ ┣ 📜MealItemForm.js
+ ┃ ┣ 📜MealItemForm.module.css
+ ┃ ┣ 📜RegForm.js
+ ┃ ┣ 📜RegForm.module.css
+ ┃ ┗ 📜SignInForm.js
+ ┣ 📂hooks                                # contains the custom hooks
+ ┃ ┗ 📜useFetch.js
+ ┣ 📂pages                                # contains the main components of each page
+ ┃ ┣ 📜Auth.js
+ ┃ ┣ 📜Auth.module.css
+ ┃ ┣ 📜AvailableMeals.js
+ ┃ ┣ 📜AvailableMeals.module.css
+ ┃ ┣ 📜AvailableMeals0.js
+ ┃ ┣ 📜Cart.js
+ ┃ ┣ 📜Cart.module.css
+ ┃ ┣ 📜Construction.js
+ ┃ ┣ 📜Home.js
+ ┃ ┣ 📜Home.module.css
+ ┃ ┗ 📜NotFound.js
+ ┣ 📂store                               # contains contexts logic and providers
+ ┃ ┣ 📜AuthContext.js
+ ┃ ┣ 📜AuthProvider.js
+ ┃ ┣ 📜CartContext.js
+ ┃ ┗ 📜CartProvider.js
+ ┣ 📜App.js
+ ┣ 📜index.css
+ ┗ 📜index.js
 
-### Making a Progressive Web App
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## `Run it locally`
 
-### Advanced Configuration
+in order to run this app on your local machine you need to do the following: 
+* clone this repository to your device 
+* make sure your cli on the root path of the repo and run ``` npm install ```
+* run ``` npm start ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
