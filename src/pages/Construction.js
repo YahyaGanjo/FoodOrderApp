@@ -1,11 +1,11 @@
 import React from "react";
 
-const User = () => {
+const Construction = () => {
   return (
     <h1 style={{ position: "absolute", top: "200px" }}>
-      This Is the User Page
+      This Page Is Under Construction
     </h1>
   );
 };
 
-export default User;
+export default Construction;

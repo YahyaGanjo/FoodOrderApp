@@ -47,7 +47,7 @@ const Auth = () => {
       });
   };
   return (
-    <div style={{ width: "90%", marginTop: "170px" }}>
+    <div className={classes.formsContainer}>
       {authMode === "signUp" && (
         <>
           <h1>Register New Account</h1>

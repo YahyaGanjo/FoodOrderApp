@@ -36,7 +36,7 @@ const Header = (props) => {
         {authCtx.isLoggedIn && (
           <button
             onClick={() => {
-              history.push("./user/:userId");
+              history.push("/construction");
             }}
             className={classes.links}
           >

@@ -41,7 +41,7 @@ const Cart = () => {
     setCheckoutIsShown(false);
   };
   return (
-    <React.Fragment>
+    <div className={classes.cartPage}>
       <div className={classes.cart}>
         <h1>{hasItems ? "Manage Your Order" : "Your Cart Is Empty"}</h1>
         {cartItems}
@@ -58,10 +58,11 @@ const Cart = () => {
           Go to checkout € {ctx.totalAmount.toFixed(2)}
         </button>
       </div>
+      <div></div>
       {checkoutIsShown && hasItems && (
         <Checkout onRemove={removingCheckoutHandler} />
       )}
-    </React.Fragment>
+    </div>
   );
 };
 

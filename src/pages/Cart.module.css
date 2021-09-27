@@ -1,8 +1,5 @@
 .cart {
-  width: 50%;
   display: grid;
-  position: absolute;
-  top: 100px;
   grid-template-rows: 80px 1fr 80px 80px;
 }
 
@@ -30,16 +27,27 @@
 .checkoutBtn:hover {
   cursor: pointer;
 }
+.cartPage {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  top: 100px;
+  width: 100vw;
+}
 
 @media screen and (max-width: 800px) {
   .cart {
     width: 75%;
-    top: 200px;
     grid-template-rows: 140px 2fr 70px 70px;
   }
   .cancelBtn,
   .checkoutBtn {
     margin: 10px 0px;
     font-size: 14px;
+  }
+  .cartPage {
+    flex-direction: column;
+    align-items: flex-start;
+    top: 150px;
   }
 }

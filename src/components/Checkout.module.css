@@ -1,17 +1,9 @@
-.formContainer {
-  width: 30%;
-  position: absolute;
-  top: 130px;
-  right: 40px;
-}
 .closeBtn {
   justify-content: center;
   border-radius: 50%;
   width: 48px;
-  top: 8px;
   height: 48px;
   align-items: center;
-  position: absolute;
   border-width: 0;
   font-size: 22px;
   background: rgb(238, 238, 238);
@@ -19,6 +11,10 @@
 .closeBtn:hover {
   cursor: pointer;
   background: #ffffff;
+}
+.formContainer {
+  width: 30%;
+  margin-right: 60px;
 }
 
 .btnContainer {
@@ -48,6 +44,16 @@
 .signIn:hover,
 .confirm:hover {
   cursor: pointer;
+}
+.formsContainer {
+  width: 40%;
+  margin-top: 170px;
+}
+
+@media screen and (max-width: 800px) {
+  .formsContainer {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 800px) {
   .formContainer {

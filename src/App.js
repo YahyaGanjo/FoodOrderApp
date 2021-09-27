@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import AvailableMeals from "./pages/AvailableMeals0";
 import NotFound from "./pages/NotFound";
-import User from "./pages/User";
+import Construction from "./pages/Construction";
 import Auth from "./pages/Auth";
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
         <Route path="/cart">
           <Cart />
         </Route>
-        <Route path="/user/:userId">
-          <User />
+        <Route path="/construction">
+          <Construction />
         </Route>
         <Route path="*">
           <NotFound />

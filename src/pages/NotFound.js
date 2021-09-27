@@ -1,11 +1,7 @@
 import React from "react";
 
 const NotFound = () => {
-  return (
-    <div>
-      <p>Page not found</p>
-    </div>
-  );
+  return <h1 style={{ color: "red" }}>something went wrong</h1>;
 };
 
 export default NotFound;
