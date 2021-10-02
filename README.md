@@ -81,7 +81,6 @@ by clicking on "Go to checkout" button a form will appear for the user to comple
  ┃ ┣ 📜Auth.module.css
  ┃ ┣ 📜AvailableMeals.js
  ┃ ┣ 📜AvailableMeals.module.css
- ┃ ┣ 📜AvailableMeals0.js
  ┃ ┣ 📜Cart.js
  ┃ ┣ 📜Cart.module.css
  ┃ ┣ 📜Construction.js
