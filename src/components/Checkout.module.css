@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 .btnContainer span {
-  color: blue;
+  color: rgb(119, 170, 77);
 }
 
 .signIn,
@@ -35,7 +35,7 @@
   font-size: 20px;
 }
 .signIn {
-  background: rgb(238, 238, 238);
+  background: rgb(255, 255, 255);
 }
 .confirm {
   background-color: black;
@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 .formsContainer {
-  width: 40%;
+  width: 30%;
   margin-top: 170px;
 }
 
